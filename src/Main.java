@@ -11,6 +11,7 @@ import utils.StorageFacility;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.*;
+import java.util.function.Function;
 
 public class Main {
 
@@ -134,6 +135,42 @@ public class Main {
         claims.get(e2).add(ec2);
         System.out.println("Employee 2 has " + claims.get(e2).size() + " claims");
         claims.put(e1, new ArrayList<>());
+
+        List<Integer> ages = List.of(1,2,3,4,5);
+        System.out.println(ages.getClass());
+
+        Map<Integer, Integer> someValues = Map.of(1,7,2,9);
+
+
+
+        System.out.println("=================");
+
+        employees.add(new Employee(7, "Akanksha", "Raut", Role.MANAGER, 300000));
+        employees.add(new Employee(8, "David", "Walsh", Role.TEAM_LEAD, 300000));
+        employees.add(new Employee(9, "Teresa", "Rosemary", Role.TESTER, 300000));
+
+        System.out.println(employees);
+
+        System.out.println(employees.size());
+
+        List<Employee> higherEarners = employees
+                .stream()
+                .filter( (emp) -> emp.getSalary() >= 300000)
+                .toList();
+
+        System.out.println("Higher earners " + higherEarners);
+
+        //total salary bill
+        Function<Employee, Double> extractSalary = emp -> emp.getSalary();
+
+        System.out.println(employees.stream()
+                .map(extractSalary)
+                .toList());
+
+        System.out.println(employees.stream()
+                .map(emp -> emp.getSalary())
+                .toList());
+
     }
 
 }
