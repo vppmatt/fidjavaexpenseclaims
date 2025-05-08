@@ -90,6 +90,9 @@ public class Main {
         employees.add(e1);
         employees.add(e2);
         System.out.println(employees.size());
+        //employees.remove(e2);
+        System.out.println(employees.get(1));
+        System.out.println(employees);
 
     }
 
