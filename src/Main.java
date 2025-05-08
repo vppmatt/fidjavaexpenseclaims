@@ -171,6 +171,16 @@ public class Main {
                 .map(emp -> emp.getSalary())
                 .toList());
 
+        Collections.sort(employees, (emp1, emp2) -> -emp1.getId().compareTo(emp2.getId()));
+
+        System.out.println(employees);
+
+        List<Employee> sortedEmployess = employees
+                .stream()
+                .sorted()
+                .toList();
+        System.out.println(sortedEmployess);
+
     }
 
 }
