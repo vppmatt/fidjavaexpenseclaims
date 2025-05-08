@@ -104,7 +104,7 @@ public class Main {
         System.out.println("EmployeesSet size " + employeesSet.size());
 
         for (int i = 0; i < employees.size(); i++) {
-            System.out.println(employees.get(i));
+            System.out.println(employees.get(i).getFirstName());
         }
 
         //foreach syntax
