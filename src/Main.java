@@ -7,10 +7,13 @@ import utils.ECProcessor;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Main {
 
     public static void main(String[] args) {
+
+
 
 //        BigDecimal total = BigDecimal.ONE;
 //        for (int i = 0; i < 10; i++) {
@@ -81,6 +84,13 @@ public class Main {
         System.out.println(ecProcessor.getClass());
 
         ECProcessor.getVersionNumber();
+
+        ArrayList<Employee> employees = new ArrayList<>();
+        System.out.println(employees.size());
+        employees.add(e1);
+        employees.add(e2);
+        System.out.println(employees.size());
+
     }
 
 }
