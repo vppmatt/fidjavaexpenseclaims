@@ -8,6 +8,7 @@ import utils.ECProcessor;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class Main {
 
@@ -93,7 +94,23 @@ public class Main {
         //employees.remove(e2);
         System.out.println(employees.get(1));
         System.out.println(employees);
+        employees.add(e1);
+        System.out.println("Employees size " + employees.size());
 
+        HashSet<Employee> employeesSet = new HashSet<>();
+        employeesSet.add(e1);
+        employeesSet.add(e2);
+        employeesSet.add(e1);
+        System.out.println("EmployeesSet size " + employeesSet.size());
+
+        for (int i = 0; i < employees.size(); i++) {
+            System.out.println(employees.get(i));
+        }
+
+        //foreach syntax
+        for(Employee emp : employeesSet) {
+            System.out.println("the current employee is " + emp);
+        }
     }
 
 }
