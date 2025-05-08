@@ -5,7 +5,7 @@ import exceptions.InvalidDateException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public class TravelExpenseClaim extends ExpenseClaim {
+public class TravelExpenseClaim extends ExpenseClaim  {
     private String modeOfTransport;
     private String destination;
 

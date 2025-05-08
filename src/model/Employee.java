@@ -2,7 +2,8 @@ package model;
 
 import java.util.Objects;
 
-public class Employee {
+public class Employee implements Comparable<Employee> {
+
     private int id;
     private String firstName;
     private String lastName;
@@ -95,5 +96,10 @@ public class Employee {
             throw new RuntimeException("Salary must be positive");
         }
         this.salary = salary;
+    }
+
+    @Override
+    public int compareTo(Employee o) {
+        return lastName.compareTo(o.lastName);
     }
 }
