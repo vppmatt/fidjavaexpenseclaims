@@ -3,13 +3,14 @@ import model.Employee;
 import model.ExpenseClaim;
 import model.Role;
 import model.TravelExpenseClaim;
+import utils.DatabaseStorageFacility;
 import utils.ECProcessor;
+import utils.FileStorageFacility;
 import utils.StorageFacility;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.*;
 
 public class Main {
 
@@ -87,7 +88,7 @@ public class Main {
 
         ECProcessor.getVersionNumber();
 
-        ArrayList<Employee> employees = new ArrayList<>();
+        List<Employee> employees = new ArrayList<>();
         System.out.println(employees.size());
         employees.add(e1);
         employees.add(e2);
@@ -113,7 +114,26 @@ public class Main {
             System.out.println("the current employee is " + emp);
         }
 
+        StorageFacility sf = new FileStorageFacility("filename");
+        sf.loadAllEmployees();
+        sf.saveEmployee(e1);
 
+        Map<Integer,Employee> employeesMap = new HashMap<>();
+        employeesMap.put(e1.getId(), e1);
+        employeesMap.put(2, e2);
+        employeesMap.put(13, e1);
+        employeesMap.put(2, null);
+        System.out.println("Employees map" + employeesMap);
+
+
+        Map<Employee, List<ExpenseClaim>> claims = new HashMap<>();
+        claims.put(e1, new ArrayList<>());
+        claims.get(e1).add(tec);
+        claims.put(e2, new ArrayList<>());
+        claims.get(e2).add(ec1);
+        claims.get(e2).add(ec2);
+        System.out.println("Employee 2 has " + claims.get(e2).size() + " claims");
+        claims.put(e1, new ArrayList<>());
     }
 
 }

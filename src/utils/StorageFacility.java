@@ -8,4 +8,5 @@ public interface StorageFacility {
 
     void saveEmployee(Employee e);
     ArrayList<Employee> loadAllEmployees();
+
 }
